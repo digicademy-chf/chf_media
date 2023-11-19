@@ -1,5 +1,5 @@
 {
-    "name": "digicademy/da-media",
+    "name": "digicademy/chf_media",
     "type": "typo3-cms-extension",
     "description": "Create and manage media archives in TYPO3",
     "authors": [
@@ -8,14 +8,17 @@
             "email": "jonatan.steller@adwmainz.de",
             "role": "Developer",
             "homepage": "https://www.adwmainz.de"
+        },
+        {
+            "name": "CHF Media contributors"
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-media",
+    "homepage": "https://extensions.typo3.org/extension/chf_media",
     "support": {
-        "issues": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-media/-/issues",
-        "source": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-media",
-        "docs": "https://adwmainz.pages.gitlab.rlp.net/digicademy/t3xdev/da-media"
+        "issues": "https://github.com/digicademy-chf/chf_media/issues",
+        "source": "https://github.com/digicademy-chf/chf_media",
+        "docs": "https://digicademy-chf.github.io/chf_media"
     },
     "keywords": [
         "TYPO3",
@@ -35,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Digicademy\\DAMedia\\": "Classes/"
+            "Digicademy\\CHFMedia\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "da_media"
+            "extension-key": "chf_media"
         }
     }
 }

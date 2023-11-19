@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: DA Media
+title: CHF Media
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -10,10 +10,19 @@ authors:
     email: jonatan.steller@adwmainz.de
     affiliation: Academy of Sciences and Literature Mainz
     orcid: 'https://orcid.org/0000-0002-5101-5275'
+  - name: "CHF Media contributors"
 repository-code: >-
-  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-media
+  https://github.com/digicademy-chf/chf_media
 abstract: >-
-  Longer description.
+  The extension provides a data model for media-centric
+  data, as part of the Cultural Heritage Framework (CHF).
+  This mainly extends TYPO3's own file metadata to
+  include, for example, revision information and the
+  ability to add labels and licences as well as
+  structured authorship relations. In addition, file
+  collections can be annotated to not just structure
+  files, which could also be achieved via labels, but
+  to allow for virtual exhibitions.
 keywords:
   - TYPO3
   - Media
@@ -27,5 +36,5 @@ keywords:
   - Academia
   - Academic
 license: GPL 3
-version: 0.0.1
-date-released: '2023-04-12'
+version: 0.6.0
+date-released: '2023-11-27'
