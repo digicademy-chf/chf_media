@@ -32,14 +32,14 @@ This is a pre-release version. The following steps are required for the software
 
 - TCA and model work as expected
 - Frontend plugin and templates
-- Import of *Namenforschung* data
+- Import of *Corpus Vitrearum* data
 - Embedded metadata
 - First set of serialisations
 - Search configuration
-- Generic Zotero import
 - Add API documentation
 
 **Beyond 2.0.0**
 
 - Add testing
+- Generic import
 - Additional serialisations
