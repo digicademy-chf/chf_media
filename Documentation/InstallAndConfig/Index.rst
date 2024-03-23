@@ -20,5 +20,5 @@ Install and config
 
 3.  Optionally set up a data folder
 
-    In a blank folder in your page tree, add a ``FileCollection``. Further
+    In a blank folder in your page tree, add a ``FileGroup``. Further
     data, such as agents, needs to be located in the same data folder.

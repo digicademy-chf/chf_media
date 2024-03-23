@@ -11,7 +11,7 @@ table for files. The central classes are ``File`` or ``FileReferences``. The
 added properties allow you to add, for example, licence information or links
 to objects and volumes. Files may also be annotated via ``LabelTag`` objects.
 
-In addition, ``FileCollection`` objects may help you structure a disparate set
+In addition, ``FileGroup`` objects may help you structure a disparate set
 of files and build a user-accessible page around it. This may be useful for
 sets of files that do not represent a class present in another data model of
 the CHF but that still need to be collected in a form of online exhibition.

@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFMedia\Domain\Repository;
 
-use Digicademy\CHFMedia\Domain\Model\FileCollection;
+use Digicademy\CHFMedia\Domain\Model\FileGroup;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository for FileCollection
+ * Repository for FileGroup
  * 
- * @extends Repository<FileCollection>
+ * @extends Repository<FileGroup>
  */
-class FileCollectionRepository extends Repository
+class FileGroupRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting'          => QueryInterface::ORDER_ASCENDING,
