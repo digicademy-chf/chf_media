@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_media/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_media">
+        <header/>
+        <body>
+            <!-- Object: AbstractResource -->
+            <trans-unit id="object.abstractResource.allFileGroups" resname="object.abstractResource.allFileGroups" approved="yes">
+                <source>All file groups</source>
+                <target>Alle Dateigruppen</target>
+            </trans-unit>
+            <trans-unit id="object.abstractResource.allFileGroups.description" resname="object.abstractResource.allFileGroups.description" approved="yes">
+                <source>List of all file groups compiled in this resource</source>
+                <target>Liste aller Dateigruppen, die in dieser Ressource verzeichnet sind</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
