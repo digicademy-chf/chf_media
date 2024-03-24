@@ -12,6 +12,36 @@
                 <source>List of all file groups compiled in this resource</source>
                 <target>Liste aller Dateigruppen, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
+            <!-- Object: FileGroup -->
+            <trans-unit id="object.fileGroup" resname="object.fileGroup" approved="yes">
+                <source>File group</source>
+                <target>Dateigruppe</target>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.name" resname="object.fileGroup.name" approved="yes">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.name.description" resname="object.fileGroup.name.description" approved="yes">
+                <source>Title of this file group</source>
+                <target>Titel dieser Dateigruppe</target>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.portfolio" resname="object.fileGroup.portfolio" approved="yes">
+                <source>Portfolio</source>
+                <target>Portfolio</target>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.portfolio.description" resname="object.fileGroup.portfolio.description" approved="yes">
+                <source>List of all files that are part of this file group</source>
+                <target>Liste aller Dateien, die in dieser Dateigruppe verzeichnet sind</target>
+            </trans-unit>
+            <!-- Object: LabelTag -->
+            <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup" approved="yes">
+                <source>Usage as label of a file group</source>
+                <target>Verwendung als Label einer Dateigruppe</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description" approved="yes">
+                <source>List of file groups that use this tag as a label</source>
+                <target>Liste der Dateigruppen, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
