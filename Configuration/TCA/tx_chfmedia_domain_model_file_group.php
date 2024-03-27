@@ -133,6 +133,7 @@ return [
                 'sortItems' => [
                     'label' => 'asc',
                 ],
+                'required' => true,
             ],
         ],
         'uuid' => [
