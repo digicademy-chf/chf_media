@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Media for TYPO3.
@@ -14,6 +13,8 @@ use Psr\Http\Message\ResponseInterface;
 use Digicademy\CHFMedia\Domain\Model\FileGroup;
 use Digicademy\CHFMedia\Domain\Repository\FileGroupRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+defined('TYPO3') or die();
 
 /**
  * Controller for FileGroup
