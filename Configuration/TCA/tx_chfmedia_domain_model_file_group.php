@@ -19,7 +19,7 @@ defined('TYPO3') or die();
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.bibliographicEntry',
+        'title'                    => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileGroup',
         'label'                    => 'name',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
