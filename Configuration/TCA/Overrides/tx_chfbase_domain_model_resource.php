@@ -35,7 +35,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
