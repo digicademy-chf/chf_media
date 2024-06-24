@@ -5,33 +5,33 @@
         <body>
             <!-- Object: AbstractResource -->
             <trans-unit id="object.abstractResource.allFileGroups" resname="object.abstractResource.allFileGroups">
-                <source>All file groups</source>
+                <source>All file collections</source>
             </trans-unit>
             <trans-unit id="object.abstractResource.allFileGroups.description" resname="object.abstractResource.allFileGroups.description">
-                <source>List of all file groups compiled in this resource</source>
+                <source>List of all file collections compiled in this resource</source>
             </trans-unit>
             <!-- Object: FileGroup -->
             <trans-unit id="object.fileGroup" resname="object.fileGroup">
-                <source>File group</source>
+                <source>File collection</source>
             </trans-unit>
             <trans-unit id="object.fileGroup.name" resname="object.fileGroup.name">
                 <source>Name</source>
             </trans-unit>
             <trans-unit id="object.fileGroup.name.description" resname="object.fileGroup.name.description">
-                <source>Title of this file group</source>
+                <source>Title of this file collection</source>
             </trans-unit>
             <trans-unit id="object.fileGroup.portfolio" resname="object.fileGroup.portfolio">
                 <source>Portfolio</source>
             </trans-unit>
             <trans-unit id="object.fileGroup.portfolio.description" resname="object.fileGroup.portfolio.description">
-                <source>List of all files that are part of this file group</source>
+                <source>List of all files that are part of this collection</source>
             </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup">
-                <source>Usage as label of a file group</source>
+                <source>Usage as label of a file collection</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description">
-                <source>List of file groups that use this tag as a label</source>
+                <source>List of file collections that use this label</source>
             </trans-unit>
         </body>
     </file>

@@ -24,7 +24,7 @@ defined('TYPO3') or die();
 class FileGroup extends AbstractHeritage
 {
     /**
-     * Title of this file group
+     * Title of this file collection
      * 
      * @var string
      */
@@ -37,7 +37,7 @@ class FileGroup extends AbstractHeritage
     protected string $name = '';
 
     /**
-     * List of all files that are part of this file group
+     * List of all files that are part of this collection
      * 
      * @var ?ObjectStorage<FileReference>
      */
