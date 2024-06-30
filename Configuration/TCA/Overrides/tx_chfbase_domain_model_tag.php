@@ -33,9 +33,7 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_file_group}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfmedia_domain_model_file_group_tag_label_mm',
                 'MM_opposite_field' => 'label',
-                'MM_match_fields' => [
-                    'fieldname' => 'asLabelOfFileGroup',
-                ],
+                'multiple' => 1,
                 'size' => 5,
                 'autoSizeMax' => 10,
             ],
