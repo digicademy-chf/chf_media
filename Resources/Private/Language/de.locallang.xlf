@@ -33,6 +33,14 @@
                 <source>List of all files that are part of this collection</source>
                 <target>Liste aller Dateien, die in dieser Sammlung verzeichnet sind</target>
             </trans-unit>
+            <trans-unit id="object.fileGroup.event" resname="object.fileGroup.event" approved="yes">
+                <source>Event</source>
+                <target>Ereignis</target>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.event.description" resname="object.fileGroup.event.description" approved="yes">
+                <source>Room to list collection-related events</source>
+                <target>Platz für sammlungsbezogene Ereignisse</target>
+            </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup" approved="yes">
                 <source>Usage as label of a file collection</source>

@@ -26,6 +26,12 @@
             <trans-unit id="object.fileGroup.portfolio.description" resname="object.fileGroup.portfolio.description">
                 <source>List of all files that are part of this collection</source>
             </trans-unit>
+            <trans-unit id="object.fileGroup.event" resname="object.fileGroup.event">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="object.fileGroup.event.description" resname="object.fileGroup.event.description">
+                <source>Room to list collection-related events</source>
+            </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup">
                 <source>Usage as label of a file collection</source>
