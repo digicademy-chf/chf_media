@@ -50,6 +50,15 @@
                 <source>List of file collections that use this label</source>
                 <target>Liste der Dateisammlungen, die dieses Label verwenden</target>
             </trans-unit>
+            <!-- Plugin: MediaCollection -->
+            <trans-unit id="plugin.mediaCollection" resname="plugin.mediaCollection" approved="yes">
+                <source>Media collection</source>
+                <target>Medienkollektion</target>
+            </trans-unit>
+            <trans-unit id="plugin.mediaCollection.description" resname="plugin.mediaCollection.description" approved="yes">
+                <source>List and individual media view</source>
+                <target>Liste und Einzelanzeige von Medien</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

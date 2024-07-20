@@ -28,7 +28,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'isHighlight ASC,name ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_media/Resources/Public/Icons/FileGroup.svg',
+        'iconfile'                 => 'EXT:chf_media/Resources/Public/Icons/TableFileGroup.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
