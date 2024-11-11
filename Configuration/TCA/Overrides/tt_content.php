@@ -20,12 +20,12 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add plugin 'MediaCollection'
+// Add plugin 'Collection'
 ExtensionUtility::registerPlugin(
     'CHFMedia',
-    'MediaCollection',
-    'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:plugin.mediaCollection',
-    'tx-chfmedia-plugin-media-collection',
+    'Collection',
+    'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:plugin.collection',
+    'tx-chfmedia-plugin-collection',
     'heritage',
-    'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:plugin.mediaCollection.description',
+    'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:plugin.collection.description',
 );
