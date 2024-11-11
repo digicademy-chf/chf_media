@@ -39,7 +39,7 @@
             </trans-unit>
             <trans-unit id="object.fileGroup.event.description" resname="object.fileGroup.event.description" approved="yes">
                 <source>Room to list collection-related events</source>
-                <target>Platz für sammlungsbezogene Ereignisse</target>
+                <target>Raum für sammlungsbezogene Ereignisse</target>
             </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup" approved="yes">

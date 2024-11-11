@@ -62,7 +62,7 @@ class FileGroup extends AbstractHeritage
     protected ?ObjectStorage $event = null;
 
     /**
-     * Agent of this database record described by a relation
+     * Agent related to this record
      * 
      * @var ?ObjectStorage<AgentRelation>
      */
@@ -73,7 +73,7 @@ class FileGroup extends AbstractHeritage
     protected ?ObjectStorage $agentRelation = null;
 
     /**
-     * Location of this database record described by a relation
+     * Location related to this record
      * 
      * @var ?ObjectStorage<LocationRelation>
      */
@@ -86,12 +86,12 @@ class FileGroup extends AbstractHeritage
     /**
      * Construct object
      *
+     * @param string $name
      * @param object $parentResource
      * @param string $uuid
-     * @param string $name
      * @return FileGroup
      */
-    public function __construct(object $parentResource, string $uuid, string $name)
+    public function __construct(string $name, object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
