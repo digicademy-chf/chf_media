@@ -17,7 +17,8 @@ ExtensionUtility::configurePlugin(
     'CHFMedia',
     'Collection',
     [
-        FileGroupController::class => 'index',
-        FileGroupController::class => 'show',
+        FileGroupController::class => 'index, show',
     ],
+    [], // None of the actions are non-cacheable
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
