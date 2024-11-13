@@ -18,10 +18,10 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add column 'allFileGroups'
+// Add column 'all_file_groups'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
     [
-        'allFileGroups' => [
+        'all_file_groups' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.abstractResource.allFileGroups',
@@ -29,7 +29,7 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfmedia_domain_model_file_group',
-                'foreign_field' => 'parentResource',
+                'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
                     'collapseAll' => true,
