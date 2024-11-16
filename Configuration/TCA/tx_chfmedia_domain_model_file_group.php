@@ -253,6 +253,11 @@ return [
                                 'readOnly' => true,
                             ],
                         ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'curator',
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -288,6 +293,11 @@ return [
                             'config' => [
                                 'default' => 'locationRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'genericLocation',
                             ],
                         ],
                     ],
@@ -559,6 +569,11 @@ return [
                                 'readOnly' => true,
                             ],
                         ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'author',
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -594,6 +609,11 @@ return [
                             'config' => [
                                 'default' => 'licenceRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'allContent',
                             ],
                         ],
                     ],
