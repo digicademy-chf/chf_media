@@ -39,12 +39,12 @@
             <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description">
                 <source>List of file collections that use this label</source>
             </trans-unit>
-            <!-- Plugin: Collection -->
-            <trans-unit id="plugin.collection" resname="plugin.collection">
-                <source>Collection</source>
+            <!-- Plugin: Gallery -->
+            <trans-unit id="plugin.gallery" resname="plugin.gallery">
+                <source>Gallery</source>
             </trans-unit>
-            <trans-unit id="plugin.collection.description" resname="plugin.collection.description">
-                <source>List and individual view of a file collection</source>
+            <trans-unit id="plugin.gallery.description" resname="plugin.gallery.description">
+                <source>List and individual views of files</source>
             </trans-unit>
         </body>
     </file>

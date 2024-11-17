@@ -12,10 +12,10 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
-// Register 'Collection' content element
+// Register 'Gallery' content element
 ExtensionUtility::configurePlugin(
     'CHFMedia',
-    'Collection',
+    'Gallery',
     [
         FileGroupController::class => 'index, show',
     ],

@@ -50,14 +50,14 @@
                 <source>List of file collections that use this label</source>
                 <target>Liste der Dateisammlungen, die dieses Label verwenden</target>
             </trans-unit>
-            <!-- Plugin: Collection -->
-            <trans-unit id="plugin.collection" resname="plugin.collection" approved="yes">
-                <source>Collection</source>
-                <target>Sammlung</target>
+            <!-- Plugin: Gallery -->
+            <trans-unit id="plugin.gallery" resname="plugin.gallery" approved="yes">
+                <source>Gallery</source>
+                <target>Galerie</target>
             </trans-unit>
-            <trans-unit id="plugin.collection.description" resname="plugin.collection.description" approved="yes">
-                <source>List and individual view of a file collection</source>
-                <target>Liste und Einzelanzeige in Dateisammlungen</target>
+            <trans-unit id="plugin.gallery.description" resname="plugin.gallery.description" approved="yes">
+                <source>List and individual views of files</source>
+                <target>Liste und Einzelanzeigen von Dateien</target>
             </trans-unit>
         </body>
     </file>

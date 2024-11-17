@@ -22,8 +22,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:chf_media/Resources/Public/Icons/TableFileGroup.svg',
     ],
-    'tx-chfmedia-plugin-collection' => [
+    'tx-chfmedia-plugin-gallery' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:chf_media/Resources/Public/Icons/PluginCollection.svg',
+        'source' => 'EXT:chf_media/Resources/Public/Icons/PluginGallery.svg',
     ],
 ];
