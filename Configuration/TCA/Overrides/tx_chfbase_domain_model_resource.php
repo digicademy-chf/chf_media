@@ -28,7 +28,7 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.abstractResource.allFileGroups.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfmedia_domain_model_file_group',
+                'foreign_table' => 'tx_chfmedia_domain_model_filegroup',
                 'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [

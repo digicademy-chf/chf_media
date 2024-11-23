@@ -18,6 +18,12 @@ use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
 use Digicademy\CHFBase\Domain\Model\AgentRelation;
 use Digicademy\CHFBase\Domain\Model\LocationRelation;
 use Digicademy\CHFBase\Domain\Model\Period;
+use Digicademy\CHFBib\Domain\Model\BibliographicResource;
+use Digicademy\CHFGloss\Domain\Model\GlossaryResource;
+use Digicademy\CHFLex\Domain\Model\LexicographicResource;
+use Digicademy\CHFMap\Domain\Model\MapResource;
+use Digicademy\CHFObject\Domain\Model\ObjectResource;
+use Digicademy\CHFPub\Domain\Model\PublicationResource;
 
 defined('TYPO3') or die();
 
@@ -87,11 +93,11 @@ class FileGroup extends AbstractHeritage
      * Construct object
      *
      * @param string $name
-     * @param object $parentResource
+     * @param BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource
      * @param string $uuid
      * @return FileGroup
      */
-    public function __construct(string $name, object $parentResource, string $uuid)
+    public function __construct(string $name, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();

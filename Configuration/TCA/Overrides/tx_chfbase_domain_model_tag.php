@@ -29,9 +29,9 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfmedia_domain_model_file_group',
-                'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_file_group}.{#pid}=###CURRENT_PID###',
-                'MM' => 'tx_chfmedia_domain_model_file_group_tag_label_mm',
+                'foreign_table' => 'tx_chfmedia_domain_model_filegroup',
+                'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_filegroup}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chfmedia_domain_model_filegroup_tag_label_mm',
                 'MM_opposite_field' => 'label',
                 'multiple' => 1,
                 'size' => 5,
