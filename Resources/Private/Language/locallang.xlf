@@ -44,7 +44,7 @@
                 <source>Gallery</source>
             </trans-unit>
             <trans-unit id="plugin.gallery.description" resname="plugin.gallery.description">
-                <source>List and individual views of files</source>
+                <source>List and show files and file collections</source>
             </trans-unit>
         </body>
     </file>

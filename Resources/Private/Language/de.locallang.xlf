@@ -56,8 +56,8 @@
                 <target>Galerie</target>
             </trans-unit>
             <trans-unit id="plugin.gallery.description" resname="plugin.gallery.description" approved="yes">
-                <source>List and individual views of files</source>
-                <target>Liste und Einzelanzeigen von Dateien</target>
+                <source>List and show files and file collections</source>
+                <target>Dateien und Dateisammlungen auflisten und anzeigen</target>
             </trans-unit>
         </body>
     </file>

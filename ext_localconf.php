@@ -7,7 +7,7 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
-use Digicademy\CHFMedia\Controller\FileGroupController;
+use Digicademy\CHFMedia\Controller\GalleryController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
@@ -17,7 +17,7 @@ ExtensionUtility::configurePlugin(
     'CHFMedia',
     'Gallery',
     [
-        FileGroupController::class => 'index, show',
+        GalleryController::class => 'index, showSingle, showGroup',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
