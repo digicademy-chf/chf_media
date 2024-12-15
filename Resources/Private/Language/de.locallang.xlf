@@ -41,6 +41,55 @@
                 <source>Room to list collection-related events</source>
                 <target>Raum für sammlungsbezogene Ereignisse</target>
             </trans-unit>
+            <!-- Object: FileMetadata -->
+            <trans-unit id="object.fileMetadata.fileType" resname="object.fileMetadata.fileType" approved="yes">
+                <source>File type</source>
+                <target>Dateiart</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.title.description" resname="object.fileMetadata.title.description" approved="yes">
+                <source>Name of the file</source>
+                <target>Name der Datei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.alternative.description" resname="object.fileMetadata.alternative.description" approved="yes">
+                <source>Description of the file for accessibility</source>
+                <target>Beschreibung der Datei zur Barrierearmut</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.caption.description" resname="object.fileMetadata.caption.description" approved="yes">
+                <source>Text visible below the file</source>
+                <target>Unter der Datei sichtbarer Text</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.copyright.description" resname="object.fileMetadata.copyright.description" approved="yes">
+                <source>Credit string below the file</source>
+                <target>Quellenangabe unter der Datei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.creator_tool.description" resname="object.fileMetadata.creator_tool.description" approved="yes">
+                <source>Software used to create the file</source>
+                <target>Software, mit der die Datei erstellt wurde</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.duration.description" resname="object.fileMetadata.duration.description" approved="yes">
+                <source>Length of the media file</source>
+                <target>Länge der Mediendatei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.color_space.description" resname="object.fileMetadata.color_space.description" approved="yes">
+                <source>Color space of the image file</source>
+                <target>Farbraum der Bilddatei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.width.description" resname="object.fileMetadata.width.description" approved="yes">
+                <source>Width of the media file</source>
+                <target>Breite der Mediendatei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.height.description" resname="object.fileMetadata.height.description" approved="yes">
+                <source>Height of the media file</source>
+                <target>Höhe der Mediendatei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.unit.description" resname="object.fileMetadata.unit.description" approved="yes">
+                <source>Unit used to measure width and height</source>
+                <target>Einheit, in der Breite und Höhe angegeben sind</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.pages.description" resname="object.fileMetadata.pages.description" approved="yes">
+                <source>Number of pages</source>
+                <target>Anzahl der Seiten</target>
+            </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup" approved="yes">
                 <source>Usage as label of a file collection</source>
@@ -49,6 +98,14 @@
             <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description" approved="yes">
                 <source>List of file collections that use this label</source>
                 <target>Liste der Dateisammlungen, die dieses Label verwenden</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfFileMetadata" resname="object.labelTag.asLabelOfFileMetadata" approved="yes">
+                <source>Usage as label of a file</source>
+                <target>Verwendung als Label einer Datei</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfFileMetadata.description" resname="object.labelTag.asLabelOfFileMetadata.description" approved="yes">
+                <source>List of files that use this label</source>
+                <target>Liste der Dateien, die dieses Label verwenden</target>
             </trans-unit>
             <!-- Plugin: Gallery -->
             <trans-unit id="plugin.gallery" resname="plugin.gallery" approved="yes">

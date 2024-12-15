@@ -32,12 +32,55 @@
             <trans-unit id="object.fileGroup.event.description" resname="object.fileGroup.event.description">
                 <source>Room to list collection-related events</source>
             </trans-unit>
+            <!-- Object: FileMetadata -->
+            <trans-unit id="object.fileMetadata.fileType" resname="object.fileMetadata.fileType">
+                <source>File type</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.title.description" resname="object.fileMetadata.title.description">
+                <source>Name of the file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.alternative.description" resname="object.fileMetadata.alternative.description">
+                <source>Description of the file for accessibility</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.caption.description" resname="object.fileMetadata.caption.description">
+                <source>Text visible below the file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.copyright.description" resname="object.fileMetadata.copyright.description">
+                <source>Credit string below the file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.creator_tool.description" resname="object.fileMetadata.creator_tool.description">
+                <source>Software used to create the file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.duration.description" resname="object.fileMetadata.duration.description">
+                <source>Length of the media file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.color_space.description" resname="object.fileMetadata.color_space.description">
+                <source>Color space of the image file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.width.description" resname="object.fileMetadata.width.description">
+                <source>Width of the media file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.height.description" resname="object.fileMetadata.height.description">
+                <source>Height of the media file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.unit.description" resname="object.fileMetadata.unit.description">
+                <source>Unit used to measure width and height</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.pages.description" resname="object.fileMetadata.pages.description">
+                <source>Number of pages</source>
+            </trans-unit>
             <!-- Object: LabelTag -->
             <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup">
                 <source>Usage as label of a file collection</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description">
                 <source>List of file collections that use this label</source>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfFileMetadata" resname="object.labelTag.asLabelOfFileMetadata">
+                <source>Usage as label of a file</source>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfFileMetadata.description" resname="object.labelTag.asLabelOfFileMetadata.description">
+                <source>List of files that use this label</source>
             </trans-unit>
             <!-- Plugin: Gallery -->
             <trans-unit id="plugin.gallery" resname="plugin.gallery">

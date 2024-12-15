@@ -18,7 +18,7 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add column 'as_label_of_file_group'
+// Add columns 'as_label_of_file_group' and 'as_label_of_file_metadata'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
     [
         'as_label_of_file_group' => [
@@ -32,6 +32,22 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chfmedia_domain_model_filegroup',
                 'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_filegroup}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chfmedia_domain_model_filegroup_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'multiple' => 1,
+                'size' => 5,
+                'autoSizeMax' => 10,
+            ],
+        ],
+        'as_label_of_file_metadata' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileMetadata',
+            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileMetadata.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'sys_file_metadata',
+                'MM' => 'tx_chfmedia_domain_model_filemetadata_tag_label_mm',
                 'MM_opposite_field' => 'label',
                 'multiple' => 1,
                 'size' => 5,
