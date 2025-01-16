@@ -7,8 +7,3 @@ services:
   Digicademy\CHFMedia\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
-
-  Digicademy\CHFMedia\EventListener\ExiftoolFileMetadataExtraction:
-    tags:
-      - name: event.listener
-        identifier: 'chfExiftoolFileMetadataExtraction'
