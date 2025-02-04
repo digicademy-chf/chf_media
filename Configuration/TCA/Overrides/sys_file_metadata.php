@@ -19,6 +19,8 @@ defined('TYPO3') or die();
  */
 
 // Modify table settings
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['sortby'] = 'sorting';
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['default_sortby'] = 'is_highlight ASC,title ASC';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['descriptionColumn'] = 'editorial_note';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,uuid,content_creation_date,content_modification_date,revision_number,editorial_note,import_origin,import';
 
@@ -442,7 +444,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value => [
         'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
@@ -451,7 +453,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::TEXT->value => [
         'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
@@ -460,7 +462,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
         'showitem' => 'fileinfo,--palette--;;titleAlternative,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,color_space,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
@@ -469,7 +471,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::AUDIO->value => [
         'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
@@ -478,7 +480,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::VIDEO->value => [
         'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
@@ -487,7 +489,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::APPLICATION->value => [
         'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
