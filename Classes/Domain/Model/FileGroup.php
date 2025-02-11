@@ -94,12 +94,13 @@ class FileGroup extends AbstractHeritage
      *
      * @param string $name
      * @param BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource
+     * @param string $iri
      * @param string $uuid
      * @return FileGroup
      */
-    public function __construct(string $name, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $uuid)
+    public function __construct(string $name, BibliographicResource|GlossaryResource|LexicographicResource|MapResource|ObjectResource|PublicationResource $parentResource, string $iri, string $uuid)
     {
-        parent::__construct($parentResource, $uuid);
+        parent::__construct($parentResource, $iri, $uuid);
         $this->initializeObject();
 
         $this->setName($name);
