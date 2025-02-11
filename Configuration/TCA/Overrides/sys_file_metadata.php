@@ -22,7 +22,7 @@ defined('TYPO3') or die();
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['sortby'] = 'sorting';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['default_sortby'] = 'is_highlight ASC,title ASC';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['descriptionColumn'] = 'editorial_note';
-$GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,uuid,content_creation_date,content_modification_date,revision_number,editorial_note,import_origin,import';
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,iri,uuid,content_creation_date,content_modification_date,revision_number,editorial_note,import_origin,import';
 
 // Add various columns
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_metadata',
@@ -179,6 +179,32 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     ]
                 ],
             ]
+        ],
+        'iri' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.iri',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.iri.description',
+            'config' => [
+                'type' => 'slug',
+                'size' => 40,
+                'appearance' => [
+                    'prefix' => 'Digicademy\CHFBase\UserFunctions\FormEngine\SlugPrefix->getPrefix',
+                ],
+                'prependSlash' => false,
+                'generatorOptions' => [
+                    'fields' => [
+                        'uid',
+                    ],
+                    'fieldSeparator' => '/',
+                    'prefixParentPageSlug' => false,
+                    'replacements' => [
+                        '/' => '',
+                    ],
+                ],
+                'eval' => 'uniqueInSite',
+                'fallbackCharacter' => '',
+            ],
         ],
         'uuid' => [
             'exclude' => true,
