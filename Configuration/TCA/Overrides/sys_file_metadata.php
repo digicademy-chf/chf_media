@@ -20,9 +20,9 @@ defined('TYPO3') or die();
 
 // Modify table settings
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['sortby'] = 'sorting';
-$GLOBALS['TCA']['sys_file_metadata']['ctrl']['default_sortby'] = 'is_highlight ASC,title ASC';
-$GLOBALS['TCA']['sys_file_metadata']['ctrl']['descriptionColumn'] = 'editorial_note';
-$GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,iri,uuid,content_creation_date,content_modification_date,revision_number,editorial_note,import_origin,import';
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['default_sortby'] = 'is_highlight ASC,content_creation_date DESC,title ASC';
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['descriptionColumn'] = 'note';
+$GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,download_name,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,location_continent,location_country,location_region,location_city,location_building,location_part_of_building,longitude,latitude,iri,uuid,content_creation_date,content_modification_date,revision_number,note,import_origin';
 
 // Add various columns
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_metadata',
@@ -58,9 +58,15 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chfmedia_domain_model_filemetadata_tag_label_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    #. ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.falPage###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'MM' => 'tx_chfbase_domain_model_tag_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'label',
+                    'tablenames' => 'sys_file_metadata',
+                ],
+                'MM_opposite_field' => 'items',
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
                     'appearance' => [
@@ -71,21 +77,18 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 'size' => 8,
             ],
         ],
-        'location_relation' => [
+        'agent_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation.description',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.agentRelation',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.agentRelation.description',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'sys_file_metadata',
-                    'fieldname' => 'location_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'agentRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -100,7 +103,44 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'locationRelation',
+                                'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'curator',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'location_relation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation.description',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'locationRelation'
+                ],
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
                                 'readOnly' => true,
                             ],
                         ],
@@ -113,6 +153,48 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 ],
             ],
         ],
+        'location_continent' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationContinent',
+            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationContinent.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
+        'location_building' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationBuilding',
+            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationBuilding.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
+        'location_part_of_building' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationPartOfBuilding',
+            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationPartOfBuilding.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
         'link_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -121,13 +203,10 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'sys_file_metadata',
-                    'fieldname' => 'link_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'linkRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -142,7 +221,6 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'linkRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -193,17 +271,15 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 ],
                 'prependSlash' => false,
                 'generatorOptions' => [
-                    'fields' => [
-                        'uid',
-                    ],
-                    'fieldSeparator' => '/',
                     'prefixParentPageSlug' => false,
                     'replacements' => [
                         '/' => '',
                     ],
                 ],
+                'default' => 'f',
                 'eval' => 'uniqueInSite',
                 'fallbackCharacter' => '',
+                'required' => true,
             ],
         ],
         'uuid' => [
@@ -254,21 +330,6 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 'required' => true,
             ],
         ],
-        'editorial_note' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote.description',
-            'config' => [
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 5,
-                'max' => 2000,
-                'eval' => 'trim',
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
-            ],
-        ],
         'authorship_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -277,13 +338,10 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'sys_file_metadata',
-                    'fieldname' => 'authorship_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'authorshipRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -298,7 +356,6 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'authorshipRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -319,13 +376,10 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
-                'MM_match_fields' => [
-                    'tablenames' => 'sys_file_metadata',
-                    'fieldname' => 'licence_relation',
+                'foreign_field' => 'record',
+                'foreign_match_fields' => [
+                    'type' => 'licenceRelation'
                 ],
-                'MM_opposite_field' => 'record',
-                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -340,7 +394,6 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'default' => 'licenceRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -365,56 +418,65 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                 'eval' => 'trim',
             ],
         ],
-        'import' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import.description',
-            'config' => [
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'max' => 100000,
-                'eval' => 'trim',
-            ],
-        ],
     ]
 );
 
-// Modify labels and descriptions
+// Modify labels, descriptions, and other settings of existing fields
 $GLOBALS['TCA']['sys_file_metadata']['columns']['title']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.title.description';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['alternative']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.alternative.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['download_name']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.downloadName.description';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['caption']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.caption.description';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['copyright']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.copyright.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['categories']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.categories.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['categories']['config']['size'] = 8;
 $GLOBALS['TCA']['sys_file_metadata']['columns']['creator_tool']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.creator_tool.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['creator_tool']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['duration']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.duration.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['duration']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['color_space']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.color_space.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['color_space']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['width']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.width.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['width']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['height']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.height.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['height']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['unit']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.unit.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['unit']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['pages']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.pages.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['pages']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_country']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationCountry.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_country']['size'] = 40;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_country']['max'] = 255;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_region']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationRegion.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_region']['size'] = 40;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_region']['max'] = 255;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_city']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.locationCity.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_city']['size'] = 40;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['location_city']['max'] = 255;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['longitude']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.longitude.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['longitude']['size'] = 40;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['longitude']['max'] = 255;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.latitude.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['size'] = 40;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['max'] = 255;
 $GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['config']['renderType'] = 'checkboxToggle';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['label'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.publicationDate';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.publicationDate.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_modification_date']['label'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.revisionDate';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_modification_date']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.revisionDate.description';
-
-// Modify translation settings
-$GLOBALS['TCA']['sys_file_metadata']['columns']['creator_tool']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['duration']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['color_space']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['width']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['height']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['unit']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['pages']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_modification_date']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['note']['label'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['note']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote.description';
+$GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['rows'] = 5;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['max'] = 2000;
+$GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['behaviour']['allowLanguageSynchronization'] = true;
 
-// Create palette 'titleAlternative'
+// Create palette 'alternativeDownloadName'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
-    'titleAlternative',
-    'title,alternative,'
+    'alternativeDownloadName',
+    'alternative,download_name,'
 );
 
 // Create palette 'captionCopyright'
@@ -423,10 +485,28 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['content_modification_date']['l1
     'caption,copyright,'
 );
 
+// Create palette 'labelCategories'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
+    'labelCategories',
+    'label,categories,'
+);
+
 // Create palette 'widthHeightUnit'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
     'widthHeightUnit',
     'width,height,unit,'
+);
+
+// Create palette 'longitudeLatitude'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
+    'longitudeLatitude',
+    'longitude,latitude,'
+);
+
+// Create palette 'location'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
+    'location',
+    'location_continent,location_country,location_region,--linebreak--,location_city,location_building,location_part_of_building,'
 );
 
 // Create palette 'visibleIsTeaserIsHighlight'
@@ -448,59 +528,60 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['content_modification_date']['l1
 );
 
 // Use a custom display order for properties
+// Original showitem also contains 'description', 'ranking, 'keywords', 'creator', 'publisher', 'source', 'language', and 'fe_groups'
 $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value => [
-        'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
+        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::TEXT->value => [
-        'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
-            --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+            --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::IMAGE->value => [
-        'showitem' => 'fileinfo,--palette--;;titleAlternative,--palette--;;captionCopyright,extent,label,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,color_space,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::AUDIO->value => [
-        'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
+        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::VIDEO->value => [
-        'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
+        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::APPLICATION->value => [
-        'showitem' => 'fileinfo,title,--palette--;;captionCopyright,extent,label,
+        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,--palette--;;widthHeightUnit,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,coordinates,location_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
 ];

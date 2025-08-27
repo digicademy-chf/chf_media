@@ -42,7 +42,8 @@ class GalleryController extends ActionController
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
 
         // Set cache tag
-        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
             new CacheTag('chf')
         );
 
@@ -56,13 +57,14 @@ class GalleryController extends ActionController
      * @param File $singleFile
      * @return ResponseInterface
      */
-    public function showSingleAction(File $singleFile): ResponseInterface
+    public function showAction(File $singleFile): ResponseInterface
     {
         // Get single file
         $this->view->assign('singleFile', $singleFile);
 
         // Set cache tag
-        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
             new CacheTag('chf')
         );
 
@@ -82,7 +84,8 @@ class GalleryController extends ActionController
         $this->view->assign('fileGroup', $fileGroup);
 
         // Set cache tag
-        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
             new CacheTag('chf')
         );
 

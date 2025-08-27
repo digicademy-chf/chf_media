@@ -27,7 +27,7 @@ ExtensionUtility::configurePlugin(
     'CHFMedia',
     'Gallery',
     [
-        GalleryController::class => 'index, showSingle, showGroup',
+        GalleryController::class => 'index, show, showGroup',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

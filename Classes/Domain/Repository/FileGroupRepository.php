@@ -28,6 +28,6 @@ class FileGroupRepository extends Repository
     protected $defaultOrderings = [
         'sorting'     => QueryInterface::ORDER_ASCENDING,
         'isHighlight' => QueryInterface::ORDER_ASCENDING,
-        'name'        => QueryInterface::ORDER_ASCENDING,
+        'title'       => QueryInterface::ORDER_ASCENDING,
     ];
 }

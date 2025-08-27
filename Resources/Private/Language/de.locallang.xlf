@@ -3,27 +3,31 @@
     <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_media/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_media">
         <header/>
         <body>
-            <!-- Object: AbstractResource -->
-            <trans-unit id="object.abstractResource.allFileGroups" resname="object.abstractResource.allFileGroups" approved="yes">
-                <source>All file collections</source>
-                <target>Alle Dateisammlungen</target>
+            <!-- Object: MediaResource -->
+            <trans-unit id="object.mediaResource.type.mediaResource" resname="object.mediaResource.type.mediaResource" approved="yes">
+                <source>Media</source>
+                <target>Medien</target>
             </trans-unit>
-            <trans-unit id="object.abstractResource.allFileGroups.description" resname="object.abstractResource.allFileGroups.description" approved="yes">
-                <source>List of all file collections compiled in this resource</source>
-                <target>Liste aller Dateisammlungen, die in dieser Ressource verzeichnet sind</target>
+            <trans-unit id="object.mediaResource.fileStorage" resname="object.mediaResource.fileStorage" approved="yes">
+                <source>File storage</source>
+                <target>Dateispeicher</target>
+            </trans-unit>
+            <trans-unit id="object.mediaResource.fileStorage.description" resname="object.mediaResource.fileStorage.description" approved="yes">
+                <source>Folder holding the relevant media files</source>
+                <target>Ordner, in dem die zugehörigen Mediendateien liegen</target>
             </trans-unit>
             <!-- Object: FileGroup -->
             <trans-unit id="object.fileGroup" resname="object.fileGroup" approved="yes">
                 <source>File collection</source>
                 <target>Dateisammlung</target>
             </trans-unit>
-            <trans-unit id="object.fileGroup.name" resname="object.fileGroup.name" approved="yes">
-                <source>Name</source>
-                <target>Name</target>
+            <trans-unit id="object.fileGroup.title" resname="object.fileGroup.title" approved="yes">
+                <source>Title</source>
+                <target>Titel</target>
             </trans-unit>
-            <trans-unit id="object.fileGroup.name.description" resname="object.fileGroup.name.description" approved="yes">
-                <source>Title of this file collection</source>
-                <target>Titel dieser Dateisammlung</target>
+            <trans-unit id="object.fileGroup.title.description" resname="object.fileGroup.title.description" approved="yes">
+                <source>Name of this file collection</source>
+                <target>Name dieser Dateisammlung</target>
             </trans-unit>
             <trans-unit id="object.fileGroup.portfolio" resname="object.fileGroup.portfolio" approved="yes">
                 <source>Portfolio</source>
@@ -44,7 +48,7 @@
             <!-- Object: FileMetadata -->
             <trans-unit id="object.fileMetadata.fileType" resname="object.fileMetadata.fileType" approved="yes">
                 <source>File type</source>
-                <target>Dateiart</target>
+                <target>Dateiformat</target>
             </trans-unit>
             <trans-unit id="object.fileMetadata.title.description" resname="object.fileMetadata.title.description" approved="yes">
                 <source>Name of the file</source>
@@ -54,6 +58,10 @@
                 <source>Description of the file for accessibility</source>
                 <target>Beschreibung der Datei zur Barrierearmut</target>
             </trans-unit>
+            <trans-unit id="object.fileMetadata.downloadName.description" resname="object.fileMetadata.downloadName.description" approved="yes">
+                <source>Optional, different download file name</source>
+                <target>Optionaler, abweichender Dateiname beim Herunterladen</target>
+            </trans-unit>
             <trans-unit id="object.fileMetadata.caption.description" resname="object.fileMetadata.caption.description" approved="yes">
                 <source>Text visible below the file</source>
                 <target>Unter der Datei sichtbarer Text</target>
@@ -61,6 +69,10 @@
             <trans-unit id="object.fileMetadata.copyright.description" resname="object.fileMetadata.copyright.description" approved="yes">
                 <source>Credit string below the file</source>
                 <target>Quellenangabe unter der Datei</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.categories.description" resname="object.fileMetadata.categories.description" approved="yes">
+                <source>Freeform category tree to group the database record into</source>
+                <target>Frei gestaltbarer Kategorienbaum zum Gliedern von Datenbankeinträgen</target>
             </trans-unit>
             <trans-unit id="object.fileMetadata.creator_tool.description" resname="object.fileMetadata.creator_tool.description" approved="yes">
                 <source>Software used to create the file</source>
@@ -90,22 +102,49 @@
                 <source>Number of pages</source>
                 <target>Anzahl der Seiten</target>
             </trans-unit>
-            <!-- Object: LabelTag -->
-            <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup" approved="yes">
-                <source>Usage as label of a file collection</source>
-                <target>Verwendung als Label einer Dateisammlung</target>
+            <trans-unit id="object.fileMetadata.locationContinent" resname="object.fileMetadata.locationContinent" approved="yes">
+                <source>Continent</source>
+                <target>Kontinent</target>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description" approved="yes">
-                <source>List of file collections that use this label</source>
-                <target>Liste der Dateisammlungen, die dieses Label verwenden</target>
+            <trans-unit id="object.fileMetadata.locationContinent.description" resname="object.fileMetadata.locationContinent.description" approved="yes">
+                <source>Continent where the file content is located</source>
+                <target>Kontinent, auf dem der Dateiinhalt verortet ist</target>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileMetadata" resname="object.labelTag.asLabelOfFileMetadata" approved="yes">
-                <source>Usage as label of a file</source>
-                <target>Verwendung als Label einer Datei</target>
+            <trans-unit id="object.fileMetadata.locationCountry.description" resname="object.fileMetadata.locationCountry.description" approved="yes">
+                <source>Country where the file content is located</source>
+                <target>Land, in dem der Dateiinhalt verortet ist</target>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileMetadata.description" resname="object.labelTag.asLabelOfFileMetadata.description" approved="yes">
-                <source>List of files that use this label</source>
-                <target>Liste der Dateien, die dieses Label verwenden</target>
+            <trans-unit id="object.fileMetadata.locationRegion.description" resname="object.fileMetadata.locationRegion.description" approved="yes">
+                <source>Region where the file content is located</source>
+                <target>Region, in der der Dateiinhalt verortet ist</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationCity.description" resname="object.fileMetadata.locationCity.description" approved="yes">
+                <source>City where the file content is located</source>
+                <target>Stadt, in der der Dateiinhalt verortet ist</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationBuilding" resname="object.fileMetadata.locationBuilding" approved="yes">
+                <source>Building</source>
+                <target>Gebäude</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationBuilding.description" resname="object.fileMetadata.locationBuilding.description" approved="yes">
+                <source>Building where the file content is located</source>
+                <target>Gebäude, in dem der Dateiinhalt verortet ist</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationPartOfBuilding" resname="object.fileMetadata.locationPartOfBuilding" approved="yes">
+                <source>Part of the building</source>
+                <target>Gebäudeteil</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationPartOfBuilding.description" resname="object.fileMetadata.locationPartOfBuilding.description" approved="yes">
+                <source>Part of the building where the file content is located</source>
+                <target>Gebäudeteil, in dem der Dateiinhalt verortet ist</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.longitude.description" resname="object.fileMetadata.longitude.description" approved="yes">
+                <source>Decimal notation of the longitude with a decimal period (if necessary)</source>
+                <target>Dezimalangabe des Längengrads mit Dezimalpunkt (wenn nötig)</target>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.latitude.description" resname="object.fileMetadata.latitude.description" approved="yes">
+                <source>Decimal notation of the latitude with a decimal period (if necessary)</source>
+                <target>Dezimalangabe des Breitengrads mit Dezimalpunkt (wenn nötig)</target>
             </trans-unit>
             <!-- Plugin: Gallery -->
             <trans-unit id="plugin.gallery" resname="plugin.gallery" approved="yes">

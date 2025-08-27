@@ -3,22 +3,25 @@
     <file source-language="en" datatype="plaintext" original="EXT:chf_media/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_media">
         <header/>
         <body>
-            <!-- Object: AbstractResource -->
-            <trans-unit id="object.abstractResource.allFileGroups" resname="object.abstractResource.allFileGroups">
-                <source>All file collections</source>
+            <!-- Object: MediaResource -->
+            <trans-unit id="object.mediaResource.type.mediaResource" resname="object.mediaResource.type.mediaResource">
+                <source>Media</source>
             </trans-unit>
-            <trans-unit id="object.abstractResource.allFileGroups.description" resname="object.abstractResource.allFileGroups.description">
-                <source>List of all file collections compiled in this resource</source>
+            <trans-unit id="object.mediaResource.fileStorage" resname="object.mediaResource.fileStorage">
+                <source>File storage</source>
+            </trans-unit>
+            <trans-unit id="object.mediaResource.fileStorage.description" resname="object.mediaResource.fileStorage.description">
+                <source>Storage holding the relevant media files</source>
             </trans-unit>
             <!-- Object: FileGroup -->
             <trans-unit id="object.fileGroup" resname="object.fileGroup">
                 <source>File collection</source>
             </trans-unit>
-            <trans-unit id="object.fileGroup.name" resname="object.fileGroup.name">
-                <source>Name</source>
+            <trans-unit id="object.fileGroup.title" resname="object.fileGroup.title">
+                <source>Title</source>
             </trans-unit>
-            <trans-unit id="object.fileGroup.name.description" resname="object.fileGroup.name.description">
-                <source>Title of this file collection</source>
+            <trans-unit id="object.fileGroup.title.description" resname="object.fileGroup.title.description">
+                <source>Name of this file collection</source>
             </trans-unit>
             <trans-unit id="object.fileGroup.portfolio" resname="object.fileGroup.portfolio">
                 <source>Portfolio</source>
@@ -42,11 +45,17 @@
             <trans-unit id="object.fileMetadata.alternative.description" resname="object.fileMetadata.alternative.description">
                 <source>Description of the file for accessibility</source>
             </trans-unit>
+            <trans-unit id="object.fileMetadata.downloadName.description" resname="object.fileMetadata.downloadName.description">
+                <source>Optional, different download file name</source>
+            </trans-unit>
             <trans-unit id="object.fileMetadata.caption.description" resname="object.fileMetadata.caption.description">
                 <source>Text visible below the file</source>
             </trans-unit>
             <trans-unit id="object.fileMetadata.copyright.description" resname="object.fileMetadata.copyright.description">
                 <source>Credit string below the file</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.categories.description" resname="object.fileMetadata.categories.description">
+                <source>Freeform category tree to group the database record into</source>
             </trans-unit>
             <trans-unit id="object.fileMetadata.creator_tool.description" resname="object.fileMetadata.creator_tool.description">
                 <source>Software used to create the file</source>
@@ -69,18 +78,38 @@
             <trans-unit id="object.fileMetadata.pages.description" resname="object.fileMetadata.pages.description">
                 <source>Number of pages</source>
             </trans-unit>
-            <!-- Object: LabelTag -->
-            <trans-unit id="object.labelTag.asLabelOfFileGroup" resname="object.labelTag.asLabelOfFileGroup">
-                <source>Usage as label of a file collection</source>
+            <trans-unit id="object.fileMetadata.locationContinent" resname="object.fileMetadata.locationContinent">
+                <source>Continent</source>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileGroup.description" resname="object.labelTag.asLabelOfFileGroup.description">
-                <source>List of file collections that use this label</source>
+            <trans-unit id="object.fileMetadata.locationContinent.description" resname="object.fileMetadata.locationContinent.description">
+                <source>Continent where the file content is located</source>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileMetadata" resname="object.labelTag.asLabelOfFileMetadata">
-                <source>Usage as label of a file</source>
+            <trans-unit id="object.fileMetadata.locationCountry.description" resname="object.fileMetadata.locationCountry.description">
+                <source>Country where the file content is located</source>
             </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfFileMetadata.description" resname="object.labelTag.asLabelOfFileMetadata.description">
-                <source>List of files that use this label</source>
+            <trans-unit id="object.fileMetadata.locationRegion.description" resname="object.fileMetadata.locationRegion.description">
+                <source>Region where the file content is located</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationCity.description" resname="object.fileMetadata.locationCity.description">
+                <source>City where the file content is located</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationBuilding" resname="object.fileMetadata.locationBuilding">
+                <source>Building</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationBuilding.description" resname="object.fileMetadata.locationBuilding.description">
+                <source>Building where the file content is located</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationPartOfBuilding" resname="object.fileMetadata.locationPartOfBuilding">
+                <source>Part of the building</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.locationPartOfBuilding.description" resname="object.fileMetadata.locationPartOfBuilding.description">
+                <source>Part of the building where the file content is located</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.longitude.description" resname="object.fileMetadata.longitude.description">
+                <source>Decimal notation of the longitude with a decimal period (if necessary)</source>
+            </trans-unit>
+            <trans-unit id="object.fileMetadata.latitude.description" resname="object.fileMetadata.latitude.description">
+                <source>Decimal notation of the latitude with a decimal period (if necessary)</source>
             </trans-unit>
             <!-- Plugin: Gallery -->
             <trans-unit id="plugin.gallery" resname="plugin.gallery">
