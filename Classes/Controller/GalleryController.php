@@ -12,7 +12,6 @@ namespace Digicademy\CHFMedia\Controller;
 use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFMedia\Domain\Model\FileGroup;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Domain\Model\File;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -23,12 +22,12 @@ defined('TYPO3') or die();
  */
 class GalleryController extends ActionController
 {
-    private AbstractResourceRepository $abstractResourceRepository;
-
-    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
-    {
-        $this->abstractResourceRepository = $abstractResourceRepository;
-    }
+    /**
+     * Constructor takes care of dependency injection
+     */
+    public function __construct(
+        protected readonly AbstractResourceRepository $abstractResourceRepository,
+    ) {}
 
     /**
      * Show file and file group list
@@ -40,12 +39,6 @@ class GalleryController extends ActionController
         // Get resource
         $resourceIdentifier = $this->settings['resource'];
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
-
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
 
         // Create response
         return $this->htmlResponse();
@@ -62,12 +55,6 @@ class GalleryController extends ActionController
         // Get single file
         $this->view->assign('singleFile', $singleFile);
 
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
-
         // Create response
         return $this->htmlResponse();
     }
@@ -82,12 +69,6 @@ class GalleryController extends ActionController
     {
         // Get file group
         $this->view->assign('fileGroup', $fileGroup);
-
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
 
         // Create response
         return $this->htmlResponse();

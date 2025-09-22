@@ -45,24 +45,24 @@ class FileGroup extends AbstractHeritage
     /**
      * List of all files that are part of this collection
      * 
-     * @var ?ObjectStorage<FileReference>
+     * @var ObjectStorage<FileReference>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $portfolio = null;
+    protected ObjectStorage $portfolio;
 
     /**
      * Room to list collection-related events
      * 
-     * @var ?ObjectStorage<Period>
+     * @var ObjectStorage<Period>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $event = null;
+    protected ObjectStorage $event;
 
     /**
      * Construct object
@@ -84,10 +84,10 @@ class FileGroup extends AbstractHeritage
      */
     public function initializeObject(): void
     {
-        $this->portfolio ??= new ObjectStorage();
-        $this->event ??= new ObjectStorage();
-        $this->agentRelation ??= new ObjectStorage();
-        $this->locationRelation ??= new ObjectStorage();
+        $this->portfolio = new ObjectStorage();
+        $this->event = new ObjectStorage();
+        $this->agentRelation = new ObjectStorage();
+        $this->locationRelation = new ObjectStorage();
     }
 
     /**
@@ -115,7 +115,7 @@ class FileGroup extends AbstractHeritage
      *
      * @return ObjectStorage<FileReference>
      */
-    public function getPortfolio(): ?ObjectStorage
+    public function getPortfolio(): ObjectStorage
     {
         return $this->portfolio;
     }
@@ -137,7 +137,7 @@ class FileGroup extends AbstractHeritage
      */
     public function addPortfolio(FileReference $portfolio): void
     {
-        $this->portfolio?->attach($portfolio);
+        $this->portfolio->attach($portfolio);
     }
 
     /**
@@ -147,7 +147,7 @@ class FileGroup extends AbstractHeritage
      */
     public function removePortfolio(FileReference $portfolio): void
     {
-        $this->portfolio?->detach($portfolio);
+        $this->portfolio->detach($portfolio);
     }
 
     /**
@@ -164,7 +164,7 @@ class FileGroup extends AbstractHeritage
      *
      * @return ObjectStorage<Period>
      */
-    public function getEvent(): ?ObjectStorage
+    public function getEvent(): ObjectStorage
     {
         return $this->event;
     }
@@ -186,7 +186,7 @@ class FileGroup extends AbstractHeritage
      */
     public function addEvent(Period $event): void
     {
-        $this->event?->attach($event);
+        $this->event->attach($event);
     }
 
     /**
@@ -196,7 +196,7 @@ class FileGroup extends AbstractHeritage
      */
     public function removeEvent(Period $event): void
     {
-        $this->event?->detach($event);
+        $this->event->detach($event);
     }
 
     /**

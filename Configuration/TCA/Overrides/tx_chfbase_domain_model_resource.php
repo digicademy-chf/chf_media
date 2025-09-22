@@ -52,4 +52,5 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['mediaResource'
 ]];
 
 // Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['allowed'] .= ',tx_chfmedia_domain_model_filegroup';
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chfmedia_domain_model_filegroup'] = ['parent_resource'];
