@@ -531,7 +531,7 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['behaviour']['
 // Original showitem also contains 'description', 'ranking, 'keywords', 'creator', 'publisher', 'source', 'language', and 'fe_groups'
 $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value => [
-        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
@@ -540,7 +540,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::TEXT->value => [
-        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
@@ -558,7 +558,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::AUDIO->value => [
-        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
@@ -567,7 +567,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::VIDEO->value => [
-        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,--palette--;;widthHeightUnit,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
@@ -576,7 +576,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
     TYPO3\CMS\Core\Resource\FileType::APPLICATION->value => [
-        'showitem' => 'fileinfo,title,download_name,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
+        'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,--palette--;;widthHeightUnit,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
