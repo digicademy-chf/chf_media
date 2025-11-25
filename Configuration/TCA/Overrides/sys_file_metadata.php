@@ -103,6 +103,7 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'agentRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -141,6 +142,7 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'locationRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -221,6 +223,7 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'linkRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -356,6 +359,7 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'authorshipRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -394,6 +398,7 @@ $GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternativ
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'licenceRelation',
                                 'readOnly' => true,
                             ],
                         ],
