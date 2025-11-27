@@ -1,160 +1,231 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_media/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_media">
-        <header/>
-        <body>
-            <!-- Object: MediaResource -->
-            <trans-unit id="object.mediaResource.type.mediaResource" resname="object.mediaResource.type.mediaResource" approved="yes">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+    <file id="chf_media">
+        <!-- Object: MediaResource -->
+        <unit id="object.mediaResource.type.mediaResource">
+            <segment state="final">
                 <source>Media</source>
                 <target>Medien</target>
-            </trans-unit>
-            <trans-unit id="object.mediaResource.fileStorage" resname="object.mediaResource.fileStorage" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.mediaResource.fileStorage">
+            <segment state="final">
                 <source>File storage</source>
                 <target>Dateispeicher</target>
-            </trans-unit>
-            <trans-unit id="object.mediaResource.fileStorage.description" resname="object.mediaResource.fileStorage.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.mediaResource.fileStorage.description">
+            <segment state="final">
                 <source>Folder holding the relevant media files</source>
                 <target>Ordner, in dem die zugehörigen Mediendateien liegen</target>
-            </trans-unit>
-            <!-- Object: FileGroup -->
-            <trans-unit id="object.fileGroup" resname="object.fileGroup" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: FileGroup -->
+        <unit id="object.fileGroup">
+            <segment state="final">
                 <source>File collection</source>
                 <target>Dateisammlung</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.title" resname="object.fileGroup.title" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.title">
+            <segment state="final">
                 <source>Title</source>
                 <target>Titel</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.title.description" resname="object.fileGroup.title.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.title.description">
+            <segment state="final">
                 <source>Name of this file collection</source>
                 <target>Name dieser Dateisammlung</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.portfolio" resname="object.fileGroup.portfolio" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.portfolio">
+            <segment state="final">
                 <source>Portfolio</source>
                 <target>Portfolio</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.portfolio.description" resname="object.fileGroup.portfolio.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.portfolio.description">
+            <segment state="final">
                 <source>List of all files that are part of this collection</source>
                 <target>Liste aller Dateien, die in dieser Sammlung verzeichnet sind</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.event" resname="object.fileGroup.event" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.event">
+            <segment state="final">
                 <source>Event</source>
                 <target>Ereignis</target>
-            </trans-unit>
-            <trans-unit id="object.fileGroup.event.description" resname="object.fileGroup.event.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileGroup.event.description">
+            <segment state="final">
                 <source>Room to list collection-related events</source>
                 <target>Raum für sammlungsbezogene Ereignisse</target>
-            </trans-unit>
-            <!-- Object: FileMetadata -->
-            <trans-unit id="object.fileMetadata.fileType" resname="object.fileMetadata.fileType" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: FileMetadata -->
+        <unit id="object.fileMetadata.fileType">
+            <segment state="final">
                 <source>File type</source>
                 <target>Dateiformat</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.title.description" resname="object.fileMetadata.title.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.title.description">
+            <segment state="final">
                 <source>Name of the file</source>
                 <target>Name der Datei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.alternative.description" resname="object.fileMetadata.alternative.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.alternative.description">
+            <segment state="final">
                 <source>Description of the file for accessibility</source>
                 <target>Beschreibung der Datei zur Barrierearmut</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.downloadName.description" resname="object.fileMetadata.downloadName.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.downloadName.description">
+            <segment state="final">
                 <source>Optional, different download file name</source>
                 <target>Optionaler, abweichender Dateiname beim Herunterladen</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.caption.description" resname="object.fileMetadata.caption.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.caption.description">
+            <segment state="final">
                 <source>Text visible below the file</source>
                 <target>Unter der Datei sichtbarer Text</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.copyright.description" resname="object.fileMetadata.copyright.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.copyright.description">
+            <segment state="final">
                 <source>Credit string below the file</source>
                 <target>Quellenangabe unter der Datei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.categories.description" resname="object.fileMetadata.categories.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.categories.description">
+            <segment state="final">
                 <source>Freeform category tree to group the database record into</source>
                 <target>Frei gestaltbarer Kategorienbaum zum Gliedern von Datenbankeinträgen</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.creator_tool.description" resname="object.fileMetadata.creator_tool.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.creator_tool.description">
+            <segment state="final">
                 <source>Software used to create the file</source>
                 <target>Software, mit der die Datei erstellt wurde</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.duration.description" resname="object.fileMetadata.duration.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.duration.description">
+            <segment state="final">
                 <source>Length of the media file</source>
                 <target>Länge der Mediendatei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.color_space.description" resname="object.fileMetadata.color_space.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.color_space.description">
+            <segment state="final">
                 <source>Color space of the image file</source>
                 <target>Farbraum der Bilddatei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.width.description" resname="object.fileMetadata.width.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.width.description">
+            <segment state="final">
                 <source>Width of the media file</source>
                 <target>Breite der Mediendatei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.height.description" resname="object.fileMetadata.height.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.height.description">
+            <segment state="final">
                 <source>Height of the media file</source>
                 <target>Höhe der Mediendatei</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.unit.description" resname="object.fileMetadata.unit.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.unit.description">
+            <segment state="final">
                 <source>Unit used to measure width and height</source>
                 <target>Einheit, in der Breite und Höhe angegeben sind</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.pages.description" resname="object.fileMetadata.pages.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.pages.description">
+            <segment state="final">
                 <source>Number of pages</source>
                 <target>Anzahl der Seiten</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationContinent" resname="object.fileMetadata.locationContinent" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationContinent">
+            <segment state="final">
                 <source>Continent</source>
                 <target>Kontinent</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationContinent.description" resname="object.fileMetadata.locationContinent.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationContinent.description">
+            <segment state="final">
                 <source>Continent where the file content is located</source>
                 <target>Kontinent, auf dem der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationCountry.description" resname="object.fileMetadata.locationCountry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationCountry.description">
+            <segment state="final">
                 <source>Country where the file content is located</source>
                 <target>Land, in dem der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationRegion.description" resname="object.fileMetadata.locationRegion.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationRegion.description">
+            <segment state="final">
                 <source>Region where the file content is located</source>
                 <target>Region, in der der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationCity.description" resname="object.fileMetadata.locationCity.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationCity.description">
+            <segment state="final">
                 <source>City where the file content is located</source>
                 <target>Stadt, in der der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationBuilding" resname="object.fileMetadata.locationBuilding" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationBuilding">
+            <segment state="final">
                 <source>Building</source>
                 <target>Gebäude</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationBuilding.description" resname="object.fileMetadata.locationBuilding.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationBuilding.description">
+            <segment state="final">
                 <source>Building where the file content is located</source>
                 <target>Gebäude, in dem der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationPartOfBuilding" resname="object.fileMetadata.locationPartOfBuilding" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationPartOfBuilding">
+            <segment state="final">
                 <source>Part of the building</source>
                 <target>Gebäudeteil</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.locationPartOfBuilding.description" resname="object.fileMetadata.locationPartOfBuilding.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.locationPartOfBuilding.description">
+            <segment state="final">
                 <source>Part of the building where the file content is located</source>
                 <target>Gebäudeteil, in dem der Dateiinhalt verortet ist</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.longitude.description" resname="object.fileMetadata.longitude.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.longitude.description">
+            <segment state="final">
                 <source>Decimal notation of the longitude with a decimal period (if necessary)</source>
                 <target>Dezimalangabe des Längengrads mit Dezimalpunkt (wenn nötig)</target>
-            </trans-unit>
-            <trans-unit id="object.fileMetadata.latitude.description" resname="object.fileMetadata.latitude.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.fileMetadata.latitude.description">
+            <segment state="final">
                 <source>Decimal notation of the latitude with a decimal period (if necessary)</source>
                 <target>Dezimalangabe des Breitengrads mit Dezimalpunkt (wenn nötig)</target>
-            </trans-unit>
-            <!-- Plugin: Gallery -->
-            <trans-unit id="plugin.gallery" resname="plugin.gallery" approved="yes">
+            </segment>
+        </unit>
+        <!-- Plugin: Gallery -->
+        <unit id="plugin.gallery">
+            <segment state="final">
                 <source>Gallery</source>
                 <target>Galerie</target>
-            </trans-unit>
-            <trans-unit id="plugin.gallery.description" resname="plugin.gallery.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="plugin.gallery.description">
+            <segment state="final">
                 <source>List and show files and file collections</source>
                 <target>Dateien und Dateisammlungen auflisten und anzeigen</target>
-            </trans-unit>
-        </body>
+            </segment>
+        </unit>
     </file>
 </xliff>
