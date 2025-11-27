@@ -29,6 +29,7 @@ ExtensionUtility::registerPlugin(
     'tx-chfmedia-plugin-gallery',
     'heritage',
     'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:plugin.gallery.description',
+    'FILE:EXT:chf_base/Configuration/FlexForms/PluginData.xml',
 );
 
 // Add data tab to plugin form
@@ -37,11 +38,4 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '--div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data,pi_flexform',
     'chfmedia_gallery',
     'after:subheader',
-);
-
-// Add form for plugin 'Gallery'
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:chf_base/Configuration/FlexForms/PluginData.xml',
-    'chfmedia_gallery',
 );

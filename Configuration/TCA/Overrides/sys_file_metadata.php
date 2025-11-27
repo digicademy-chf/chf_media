@@ -22,7 +22,6 @@ defined('TYPO3') or die();
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['sortby'] = 'sorting';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['default_sortby'] = 'is_highlight ASC,content_creation_date DESC,title ASC';
 $GLOBALS['TCA']['sys_file_metadata']['ctrl']['descriptionColumn'] = 'note';
-$GLOBALS['TCA']['sys_file_metadata']['ctrl']['searchFields'] = 'title,alternative,download_name,caption,copyright,creator_tool,duration,color_space,width,height,unit,pages,location_continent,location_country,location_region,location_city,location_building,location_part_of_building,longitude,latitude,iri,uuid,content_creation_date,content_modification_date,revision_number,note,import_origin';
 
 // Add various columns
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_metadata',
@@ -463,9 +462,6 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['longitude']['max'] = 255;
 $GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['description'] = 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.latitude.description';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['size'] = 40;
 $GLOBALS['TCA']['sys_file_metadata']['columns']['latitude']['max'] = 255;
-$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['sys_file_metadata']['columns']['visible']['config']['renderType'] = 'checkboxToggle';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['label'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.publicationDate';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['description'] = 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.publicationDate.description';
 $GLOBALS['TCA']['sys_file_metadata']['columns']['content_creation_date']['l10n_mode'] = 'exclude';
@@ -514,10 +510,10 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['behaviour']['
     'location_continent,location_country,location_region,--linebreak--,location_city,location_building,location_part_of_building,'
 );
 
-// Create palette 'visibleIsTeaserIsHighlight'
+// Create palette 'isTeaserIsHighlight'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('sys_file_metadata',
-    'visibleIsTeaserIsHighlight',
-    'visible,is_teaser,is_highlight,'
+    'isTeaserIsHighlight',
+    'is_teaser,is_highlight,'
 );
 
 // Create palette 'iriUuid'
@@ -533,14 +529,14 @@ $GLOBALS['TCA']['sys_file_metadata']['columns']['note']['config']['behaviour']['
 );
 
 // Use a custom display order for properties
-// Original showitem also contains 'description', 'ranking, 'keywords', 'creator', 'publisher', 'source', 'language', and 'fe_groups'
+// Original showitem also contains 'description', 'ranking, 'keywords', 'creator', 'publisher', 'source', and 'language'
 $GLOBALS['TCA']['sys_file_metadata']['types'] = [
     TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value => [
         'showitem' => 'fileinfo,title,--palette--;;alternativeDownloadName,--palette--;;captionCopyright,extent,--palette--;;labelCategories,
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
@@ -549,7 +545,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
@@ -558,7 +554,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,color_space,--palette--;;widthHeightUnit,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
@@ -567,7 +563,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
@@ -576,7 +572,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,duration,--palette--;;widthHeightUnit,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],
@@ -585,7 +581,7 @@ $GLOBALS['TCA']['sys_file_metadata']['types'] = [
             --div--;LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.fileMetadata.fileType,creator_tool,pages,--palette--;;widthHeightUnit,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,--palette--;;location,--palette--;;longitudeLatitude,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;visibleIsTeaserIsHighlight,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;isTeaserIsHighlight,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,note,authorship_relation,licence_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,',
     ],

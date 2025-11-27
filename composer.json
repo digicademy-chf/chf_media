@@ -2,7 +2,7 @@
     "name": "digicademy/chf_media",
     "version": "2.0.0",
     "type": "typo3-cms-extension",
-    "description": "Create and manage media archives in TYPO3",
+    "description": "CHF Media - Create and manage media archives in TYPO3",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
@@ -35,12 +35,12 @@
         "Academic"
     ],
     "require": {
-        "typo3/cms-core": "^13",
-        "typo3/cms-extbase": "^13",
-        "typo3/cms-fluid": "^13",
-        "typo3/cms-fluid-styled-content": "^13",
-        "typo3/cms-rte-ckeditor": "^13",
-        "typo3/cms-filemetadata": "^13",
+        "typo3/cms-core": "^14",
+        "typo3/cms-extbase": "^14",
+        "typo3/cms-fluid": "^14",
+        "typo3/cms-fluid-styled-content": "^14",
+        "typo3/cms-rte-ckeditor": "^14",
+        "typo3/cms-filemetadata": "^14",
         "digicademy/chf_base": "^2"
     },
     "suggest": {

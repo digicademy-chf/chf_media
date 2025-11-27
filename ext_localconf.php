@@ -12,6 +12,18 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
+// Default file conversions in the frontend
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
+    'jpg' => 'jpg',
+    'jpeg' => 'jpeg',
+    'avif' => 'avif',
+    'gif' => 'gif',
+    'png' => 'png',
+    'webp' => 'webp',
+    'svg' => 'svg',
+    'default' => 'jpg',
+];
+
 // Set image options (remove blur, set sRGB, improve quality)
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects'] = 0;
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] = [
@@ -30,5 +42,4 @@ ExtensionUtility::configurePlugin(
         GalleryController::class => 'index, show, showGroup',
     ],
     [], // None of the actions are non-cacheable
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
