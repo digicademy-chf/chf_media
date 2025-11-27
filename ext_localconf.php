@@ -42,4 +42,5 @@ ExtensionUtility::configurePlugin(
         GalleryController::class => 'index, show, showGroup',
     ],
     [], // None of the actions are non-cacheable
+    null,
 );
